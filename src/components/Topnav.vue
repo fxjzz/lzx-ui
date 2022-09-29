@@ -44,6 +44,7 @@ export default {
 $color: #007974;
 
 .topnav {
+
   color: $color;
   display: flex;
   padding: 16px 16px 7px;
