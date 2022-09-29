@@ -11,7 +11,7 @@
     </li>
   </ul>
   <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-    <use xlink:href="#icon-menu"></use>
+    <use xlink:href="#icon-choice"></use>
   </svg>
 </div>
 </template>
@@ -46,8 +46,8 @@ $color: #007974;
 .topnav {
   color: $color;
   display: flex;
-  padding: 16px;
-  position: fixed;
+  padding: 16px 16px 7px;
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -83,7 +83,6 @@ $color: #007974;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
   }
 
   @media (max-width: 500px) {

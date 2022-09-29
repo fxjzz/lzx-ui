@@ -62,11 +62,9 @@ $aside-index : 10;
 
 .layout {
   display: flex;
-  flex-direction: column;
   height: 100vh;
-
   >.nav {
-    flex-shrink: 0;
+
   }
 
   >.content {
@@ -84,7 +82,6 @@ $aside-index : 10;
   display: flex;
 
   >aside {
-    flex-shrink: 0;
   }
 
   >main {

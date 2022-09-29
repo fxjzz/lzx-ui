@@ -6,4 +6,6 @@ git add . &&
 git commit -m "update" &&
 git branch -M main &&
 git remote add origin git@github.com:fxjzz/lzx-ui.git &&
-git push -f -u origin main &&
+git push -f -u origin main
+cd -
+echo https://fxjzz.github.io/lzx-ui/
