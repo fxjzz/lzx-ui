@@ -42,6 +42,7 @@ export default {
 $color: #007974;
 
 .topnav {
+  background: white;
   border-bottom: 1px solid #e7e7e7;
   color: $color;
   display:flex;
@@ -53,6 +54,10 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  >a:hover{
+    opacity: 0.5;
+    transition: all 0.5s;
+  }
   >.logo {
     max-width: 6em;
     margin-right: auto;

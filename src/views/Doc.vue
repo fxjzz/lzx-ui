@@ -1,44 +1,46 @@
 <template>
-  <div class="layout">
+  <div>
     <Topnav toggleMenuButtonVisible class="nav"/>
-    <div class="content">
-      <Transition name="aside">
+    <div class="layout">
+      <div class="content">
         <aside v-if="menuVisible">
-          <h2>文档</h2>
-          <ol>
-            <li>
-              <router-link to="/doc/intro">介绍</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/install">安装</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/get-started">开始使用</router-link>
-            </li>
-          </ol>
-          <h2>组件列表</h2>
-          <ol>
-            <li>
-              <router-link to="/doc/switch">Switch</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/button">Button</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/dialog">Dialog</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/tabs">Tabs</router-link>
-            </li>
-            <li>
-              <router-link to="/doc/input">Input</router-link>
-            </li>
-          </ol>
+          <div>
+            <h2>文档</h2>
+            <ol>
+              <li>
+                <router-link to="/doc/intro">介绍</router-link>
+              </li>
+              <li>
+                <router-link to="/doc/install">安装</router-link>
+              </li>
+              <li>
+                <router-link to="/doc/get-started">开始使用</router-link>
+              </li>
+            </ol>
+            <h2>组件列表</h2>
+            <ol>
+              <li>
+                <router-link to="/doc/switch">Switch</router-link>
+              </li>
+              <li>
+                <router-link to="/doc/button">Button</router-link>
+              </li>
+              <li>
+                <router-link to="/doc/dialog">Dialog</router-link>
+              </li>
+              <li>
+                <router-link to="/doc/tabs">Tabs</router-link>
+              </li>
+              <li>
+                <router-link to="/doc/input">Input</router-link>
+              </li>
+            </ol>
+          </div>
         </aside>
-      </Transition>
         <main>
           <router-view/>
         </main>
+      </div>
     </div>
   </div>
 </template>
@@ -64,14 +66,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$aside-index: 10;
-.aside-enter-active,
-.aside-leave-active {
-  transition: opacity 0.5s ease;
-}
-.aside-enter-from,
-.aside-leave-to {
-  opacity: 0;
+.nav {
+  position: fixed;
+  z-index: 999;
 }
 
 .layout {
@@ -80,56 +77,48 @@ $aside-index: 10;
 
   > .content {
     flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
+    display: flex;
 
-    @media (max-width: 500px) {
-      padding-left: 0;
+  }
+
+  aside {
+    > div {
+      margin-left:300px;
+      height: 100%;
+      width: 150px;
+      padding: 70px 0 16px;
+      overflow: auto;
+      > h2 {
+        margin-bottom: 4px;
+        padding: 0 16px;
+      }
+      > ol {
+        > li {
+          color:#767676;
+          > a {
+            display: block;
+            padding: 4px 16px;
+            text-decoration: none;
+          }
+          &:hover,.router-link-active{
+            color:#213547;
+            transition: all 0.5s;
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
-}
 
-.content {
-  display: flex;
-
-  > main {
+  main {
+    padding: 128px;
     flex-grow: 1;
-    padding: 16px;
-    background: white;
+    border: 1px solid red;
+    overflow: auto;
   }
 }
+//    @media (max-width: 500px) {
+//      padding-left: 0;
+//    }
 
-aside {
-  background: lightblue;
-  width: 150px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 70px 0 16px;
-  height: 100%;
-  z-index: $aside-index;
-
-  > h2 {
-    margin-bottom: 4px;
-    padding: 0 16px;
-  }
-
-  > ol {
-    > li {
-      > a {
-        display: block;
-        padding: 4px 16px;
-        text-decoration: none;
-      }
-
-      .router-link-active {
-        background: white;
-      }
-    }
-  }
-}
-
-main {
-  overflow: auto;
-}
 </style>

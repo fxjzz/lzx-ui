@@ -35,5 +35,4 @@ export const router = createRouter({
     },
   ],
 });
-router.afterEach(() => {
-});
+router.afterEach(() => {});
