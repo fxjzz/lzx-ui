@@ -4,6 +4,7 @@
     <svg class="icon">
       <use xlink:href="#icon-bao"></use>
     </svg>
+    <div>Vue.js</div>
   </router-link>
   <ul class="menu">
     <li>
@@ -17,10 +18,7 @@
 </template>
 
 <script lang="ts">
-import {
-  inject,
-  Ref
-} from "vue";
+import {inject, Ref} from "vue";
 export default {
   props: {
     toggleMenuButtonVisible: {
@@ -44,10 +42,10 @@ export default {
 $color: #007974;
 
 .topnav {
-
+  border-bottom: 1px solid #e7e7e7;
   color: $color;
-  display: flex;
-  padding: 16px 16px 7px;
+  display:flex;
+  padding:8px 300px;
   position:fixed;
   top: 0;
   left: 0;
@@ -55,11 +53,14 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
-
   >.logo {
     max-width: 6em;
     margin-right: auto;
-
+    display: flex;
+    >div{
+      line-height: 36px;
+      font-weight: bolder;
+    }
     >svg {
       width: 32px;
       height: 32px;
@@ -70,10 +71,7 @@ $color: #007974;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-
-    >li {
-      margin: 0 1em;
-    }
+    >li {margin: 0 1em;}
   }
 
   >.toggleAside {
@@ -87,17 +85,9 @@ $color: #007974;
   }
 
   @media (max-width: 500px) {
-    >.menu {
-      display: none;
-    }
-
-    >.logo {
-      margin: 0 auto;
-    }
-
-    >.toggleAside {
-      display: inline-block;
-    }
+    >.menu {display: none;}
+    >.logo {margin: 0 auto;}
+    >.toggleAside {display: inline-block;}
   }
 }
 </style>

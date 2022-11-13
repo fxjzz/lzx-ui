@@ -1,5 +1,4 @@
-// 请先安装 rollup-plugin-esbuild @vitejs/plugin-vue rollup-plugin-scss sass rollup-plugin-terser
-// 为了保证版本一致，请复制我的 package.json 到你的项目，并把 name 改成你的库名
+
 import esbuild from 'rollup-plugin-esbuild'
 import vue from '@vitejs/plugin-vue'
 import scss from 'rollup-plugin-scss'
@@ -12,13 +11,13 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'Gulu',
-    file: 'dist/lib/gulu.js',
+    name: 'Lzx',
+    file: 'dist/lib/lzx.js',
     format: 'umd',
     plugins: [terser()]
   }, {
-    name: 'Gulu',
-    file: 'dist/lib/gulu.esm.js',
+    name: 'Lzx',
+    file: 'dist/lib/lzx.esm.js',
     format: 'es',
     plugins: [terser()]
   }],
