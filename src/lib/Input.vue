@@ -2,14 +2,14 @@
   <div>
     <input type="text" :placeholder="placeholder"
            v-model="value" :disabled="disabled">
-    <svg>
-      <use xlink:href="#icon-clear"></use>
-    </svg>
+    <Icon name="clear"/>
   </div>
 </template>
 
 <script lang="ts">
+import Icon from "./Icon.vue";
 export default {
+   components:{Icon},
    props:{
      value:{
        type:String,

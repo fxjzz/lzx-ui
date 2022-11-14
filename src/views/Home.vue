@@ -8,9 +8,7 @@
         <p class="actions">
           <router-link to="/doc/get-started">
             快速上手
-            <svg class="icon">
-              <use xlink:href="#icon-arrow"></use>
-            </svg>
+            <Icon name="arrow"/>
           </router-link>
           <router-link to="/doc">开始</router-link>
         </p>
@@ -19,23 +17,17 @@
     <div class="features">
       <ul>
         <li>
-          <svg>
-            <use xlink:href="#icon-Vue"></use>
-          </svg>
+          <Icon name="Vue"/>
           <h3>基于 Vue 3</h3>
           <p>骄傲地使用了 Vue 3 Composition API</p>
         </li>
         <li>
-          <svg>
-            <use xlink:href="#icon-ts"></use>
-          </svg>
+          <Icon name="ts"/>
           <h3>基于 TypeScript </h3>
           <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
-          <svg>
-            <use xlink:href="#icon-light"></use>
-          </svg>
+          <Icon name="light"/>
           <h3>代码易读</h3>
           <p>每个组件的源代码都极其简洁</p>
         </li>
@@ -46,9 +38,11 @@
 
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
+import Icon from "../lib/Icon.vue";
 
 export default {
   components: {
+    Icon,
     Topnav
   },
 };
@@ -138,7 +132,8 @@ $color: #007974;
       margin: 0 8px;
       background: $green;
       color: white;
-      display: inline-block;
+      display: inline-flex;
+      vertical-align: middle;
       padding: 8px 16px;
       border-radius: $border-radius;
       &:hover {

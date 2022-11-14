@@ -1,9 +1,7 @@
 <template>
 <div class="topnav">
   <router-link to="/" class="logo">
-    <svg class="icon">
-      <use xlink:href="#icon-bao"></use>
-    </svg>
+    <Icon name="bao"/>
     <div>Vue.js</div>
   </router-link>
   <ul class="menu">
@@ -12,9 +10,7 @@
     </li>
     <li>
       <a href="https://github.com/fxjzz/lzx-ui">
-        <svg class="icon">
-          <use xlink:href="#icon-github"></use>
-        </svg>
+        <Icon name="github"/>
       </a>
     </li>
   </ul>
@@ -26,7 +22,9 @@
 
 <script lang="ts">
 import {inject, Ref} from "vue";
+import Icon from "../lib/Icon.vue";
 export default {
+  components: {Icon},
   props: {
     toggleMenuButtonVisible: {
       type: Boolean,
