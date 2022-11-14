@@ -1,3 +1,6 @@
+<demo>
+常规用法
+</demo>
 <template>
   <div>
 
@@ -5,7 +8,7 @@
 </template>
 
 <script lang="ts">
-export default {
+export default{
 
 }
 </script>

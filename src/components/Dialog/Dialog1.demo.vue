@@ -20,13 +20,13 @@
 import {
   Button,
   Dialog
-} from "../lib/index"
+} from "../../lib"
 import {
   ref
 } from 'vue'
 import {
   openDialog
-} from '../lib/openDialog'
+} from '../../lib/openDialog'
 export default {
   components: {
     Dialog,
