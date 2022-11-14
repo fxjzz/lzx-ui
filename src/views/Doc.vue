@@ -83,6 +83,7 @@ export default {
 
   aside {
     > div {
+      margin-top: 60px;
       margin-left:300px;
       height: 100%;
       width: 150px;
@@ -111,9 +112,8 @@ export default {
   }
 
   main {
-    padding: 128px;
+    padding: 128px 460px 0 128px;
     flex-grow: 1;
-    border: 1px solid red;
     overflow: auto;
   }
 }

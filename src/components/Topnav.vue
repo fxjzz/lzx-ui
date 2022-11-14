@@ -10,6 +10,13 @@
     <li>
       <router-link to="/doc">文档</router-link>
     </li>
+    <li>
+      <a href="https://github.com/fxjzz/lzx-ui">
+        <svg class="icon">
+          <use xlink:href="#icon-github"></use>
+        </svg>
+      </a>
+    </li>
   </ul>
   <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
     <use xlink:href="#icon-choice"></use>
@@ -54,7 +61,7 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
-  >a:hover{
+  >a:hover,svg:hover{
     opacity: 0.5;
     transition: all 0.5s;
   }
@@ -76,7 +83,7 @@ $color: #007974;
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-    >li {margin: 0 1em;}
+    >li {margin: 0 1em;>a>svg{width: 24px;height: 24px;}}
   }
 
   >.toggleAside {

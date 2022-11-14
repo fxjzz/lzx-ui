@@ -74,7 +74,6 @@ $color: #007974;
   }
   @media (min-width: 1200px) {
     width: 1200px;
-
     > ul {
       > li {
         width: 33.3333%;
@@ -95,13 +94,11 @@ $color: #007974;
         "icon text";
       grid-template-columns: 80px auto;
       grid-template-rows: 1fr auto;
-
       > svg {
         grid-area: icon;
         width: 64px;
         height: 64px;
       }
-
       > h3 {
         grid-area: title;
         font-size: 28px;
