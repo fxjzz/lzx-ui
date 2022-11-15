@@ -12,6 +12,7 @@ import intro from './markdown/intro.md'
 import getStarted from './markdown/get-started.md'
 import install from './markdown/install.md'
 import InputDemo from "./components/Input/InputDemo.vue";
+import LayoutDemo from "./components/Layout/LayoutDemo.vue";
 const history = createWebHashHistory();
 const md = string => h(Markdown, { content: string, key: string })
 export const router = createRouter({
@@ -31,6 +32,7 @@ export const router = createRouter({
         { path: "dialog", component: DialogDemo },
         { path: "tabs", component: TabsDemo },
         { path: "input", component: InputDemo },
+        { path: "layout", component: LayoutDemo },
       ],
     },
   ],

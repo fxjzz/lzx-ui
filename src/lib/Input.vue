@@ -3,7 +3,7 @@
     <input type="text" :placeholder="placeholder"
            :disabled="disabled" :value="modelValue"
            @input="$emit('update:modelValue',$event.target.value)">
-    <Icon name="clear" v-if="clearable"/>
+    <Icon name="clear" v-if="clearable" @click="modelValue=''"/>
   </div>
 </template>
 

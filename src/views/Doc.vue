@@ -34,6 +34,9 @@
               <li>
                 <router-link to="/doc/input">Input</router-link>
               </li>
+              <li>
+                <router-link to="/doc/layout">Layout</router-link>
+              </li>
             </ol>
           </div>
         </aside>
