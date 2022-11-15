@@ -1,8 +1,9 @@
 <template>
   <div>
-      <input type="text" :placeholder="placeholder"
-             v-model="value" :disabled="disabled">
-    <Icon name="clear" v-if="clearable" @click="value=''"/>
+    <input type="text" :placeholder="placeholder"
+           :disabled="disabled" :value="modelValue"
+           @input="$emit('update:modelValue',$event.target.value)">
+    <Icon name="clear" v-if="clearable"/>
   </div>
 </template>
 
@@ -12,8 +13,8 @@ import Icon from "./Icon.vue";
 export default {
   components: {Icon},
   props: {
-    value: {
-      type: String,
+    modelValue: {
+      type: String
     },
     disabled: {
       type: Boolean,
@@ -48,7 +49,7 @@ div {
       border-color: #c0c4cc;
     }
 
-    &:focus{
+    &:focus {
       border-color: #409eff;
       outline: none;
     }
@@ -67,5 +68,7 @@ div {
     cursor: pointer;
   }
 }
+
+
 
 </style>

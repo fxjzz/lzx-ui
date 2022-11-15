@@ -9,6 +9,6 @@
 <script lang="ts">
 import {Input} from "../../lib";
 export default{
-  components:{Input}
+  components:{Input},
 }
 </script>
