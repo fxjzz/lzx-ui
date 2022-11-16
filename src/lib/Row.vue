@@ -33,6 +33,7 @@ export default {
 .row {
   display: flex;
   margin: 0 -10px;
+  flex-wrap: wrap;
   &.justify-center{
     justify-content: center;
   }
