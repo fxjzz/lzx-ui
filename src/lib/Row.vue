@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :style="{marginLeft:-gutter/2+'px',marginRight:-gutter/2+'px'}">
+  <div class="row" :style="rowStyle">
     <slot/>
   </div>
 </template>
@@ -8,6 +8,14 @@
 export default {
   props:{
     gutter:String
+  },
+  computed:{
+    rowStyle(){
+      return {
+        marginLeft:-this.gutter/2+'px',
+        marginRight:-this.gutter/2+'px'
+      }
+    }
   }
 }
 </script>
