@@ -21,8 +21,8 @@ export default {
     },
     rowStyle(){
       return {
-        marginLeft:-this.gutter/2+'px',
-        marginRight:-this.gutter/2+'px'
+        marginLeft:-this.gutter / 2+'px',
+        marginRight:-this.gutter / 2+'px'
       }
     }
   }
@@ -48,6 +48,9 @@ export default {
   }
   &.justify-space-around{
     justify-content: space-around;
+  }
+  &.justify-space-between{
+    justify-content: space-between;
   }
 }
 </style>

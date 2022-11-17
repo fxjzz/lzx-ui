@@ -1,6 +1,6 @@
 <template>
   <div class="col" :class="colClass" :style="colStyle">
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 
@@ -16,10 +16,10 @@ let validator = (value) => {
   return valid
 }
 export default {
+  name:'f-col',
   props: {
     span: [String, Number],
     offset: [String, Number],
-    phone: {type: Object, validator},
     ipad: {type: Object, validator,},
     narrowPc: {type: Object, validator,},
     pc: {type: Object, validator,},
@@ -60,75 +60,61 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
+@use "sass:math";
 .col {
-  height: 100px;
-  padding: 0 10px;
+  background: #d3dce6;
   $class-prefix: col-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
-      width: ($n / 24) * 100%;
+      width: math.div($n, 24) * 100%;
     }
   }
   $class-prefix: offset-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
-      margin-left: ($n / 24) * 100%;
+      margin-left: math.div($n, 24) * 100%;
     }
   }
-  @media (max-width: 576px) {
-    $class-prefix: col-phone-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
-      }
-    }
-    $class-prefix: offset-phone-;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
-      }
-    }
-  }
-  @media (min-width: 576px) and (max-width: 768px) {
+  @media (min-width: 577px) {
     $class-prefix: col-ipad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
+        width: math.div($n, 24) * 100%;
       }
     }
     $class-prefix: offset-ipad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
+        margin-left: math.div($n, 24) * 100%;
       }
     }
   }
-  @media (min-width: 768px) and (max-width: 992px) {
+  @media (min-width: 769px){ // 770
     $class-prefix: col-narrow-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
+        width: math.div($n, 24) * 100%;
       }
     }
     $class-prefix: offset-narrow-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
+        margin-left: math.div($n, 24) * 100%;
       }
     }
   }
-  @media (min-width: 993px) and (max-width: 1200px) {
+  @media (min-width: 993px) {
     $class-prefix: col-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
+        width: math.div($n, 24) * 100%;
       }
     }
     $class-prefix: offset-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
+        margin-left: math.div($n, 24) * 100%;
       }
     }
   }
@@ -136,13 +122,13 @@ export default {
     $class-prefix: col-wide-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        width: ($n / 24) * 100%;
+        width: math.div($n, 24) * 100%;
       }
     }
     $class-prefix: offset-wide-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
-        margin-left: ($n / 24) * 100%;
+        margin-left: math.div($n, 24) * 100%;
       }
     }
   }
