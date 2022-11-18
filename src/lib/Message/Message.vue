@@ -1,18 +1,24 @@
 <template>
   <Transition name="down">
     <div class="xtx-message" :style="style[type]" v-show='isShow'>
-      <!-- 上面绑定的是样式 -->
-      <!-- 不同提示图标会变 -->
-      <i class="iconfont" :class="[style[type].icon]"></i>
+      <Icon :name="type"/>
       <span class="text">{{text}}</span>
+      <div class="close" v-if="showClose" @click="onClose"><Icon name="clear"/></div>
+      <div v-else></div>
     </div>
   </Transition>
 </template>
 <script>
 import { onMounted, ref } from 'vue'
+import Icon from "../Icon.vue";
 
 export default {
-  name: 'XtxMessage',
+  components: {Icon},
+  data(){
+    return {
+      closeWindow:true
+    }
+  },
   props: {
     text: {
       type: String,
@@ -21,6 +27,19 @@ export default {
     type: {
       type: String,
       default: 'warn'
+    },
+    showClose:{
+      type:Boolean,
+      default:false
+    },
+    duration:{
+      type:Number,
+      default:1000
+    }
+  },
+  methods:{
+    onClose(){
+      this.$el.remove()
     }
   },
   setup () {
@@ -72,6 +91,7 @@ export default {
   }
 }
 .xtx-message {
+  display: flex;
   width: 300px;
   height: 50px;
   position: fixed;
@@ -80,17 +100,23 @@ export default {
   margin-left: -150px;
   top: 25px;
   line-height: 50px;
-  padding: 0 25px;
+  padding: 0 0 0 25px;
   border: 1px solid #e4e4e4;
   background: #f5f5f5;
   color: #999;
   border-radius: 4px;
-  i {
-    margin-right: 4px;
-    vertical-align: middle;
-  }
+  align-items: center;
+  justify-content: space-between;
   .text {
     vertical-align: middle;
+  }
+  .close{
+    width: 70px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left:1px solid #dcdfe6
   }
 }
 </style>
