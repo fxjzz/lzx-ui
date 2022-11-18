@@ -1,6 +1,6 @@
 <template>
-  <Transition name="down">
-    <div class="xtx-message" :style="style[type]" v-show='isShow'>
+  <Transition name="toggle">
+    <div class="xtx-message" :style="style[type]" v-show="isShow" v-if="fade">
       <Icon :name="type"/>
       <span class="text">{{text}}</span>
       <div class="close" v-if="showClose" @click="onClose"><Icon name="clear"/></div>
@@ -16,7 +16,8 @@ export default {
   components: {Icon},
   data(){
     return {
-      closeWindow:true
+      closeWindow:true,
+      fade:true
     }
   },
   props: {
@@ -34,13 +35,18 @@ export default {
     },
     duration:{
       type:Number,
-      default:1000
+      default:3000
     }
   },
   methods:{
     onClose(){
       this.$el.remove()
     }
+  },
+  mounted() {
+    setTimeout(()=>{
+      this.fade=false
+    },this.duration)
   },
   setup () {
     // 定义一个对象，包含三种情况的样式，对象key就是类型字符串
@@ -66,6 +72,7 @@ export default {
     }
     // 控制动画
     const isShow = ref(false)
+    const x = ref(3000)
     // 组件模板渲染成功后触发
     onMounted(() => {
       isShow.value = true
@@ -75,21 +82,17 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.down {
-  &.enter {
-    &.from {
-      transform: translate3d(0, -75px, 0);
-      opacity: 0;
-    }
-    &.active {
-      transition: all 0.5s;
-    }
-    &.to {
-      transform: none;
-      opacity: 1;
-    }
-  }
+.toggle-enter-active,
+.toggle-leave-active {
+  transition: all 0.5s ease;
 }
+
+.toggle-enter-from,
+.toggle-leave-to{
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
 .xtx-message {
   display: flex;
   width: 300px;
@@ -107,6 +110,7 @@ export default {
   border-radius: 4px;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
   .text {
     vertical-align: middle;
   }
