@@ -34,8 +34,7 @@ export default {
       default:false
     },
     duration:{
-      type:Number,
-      default:3000
+      type:Number
     }
   },
   methods:{
@@ -46,10 +45,13 @@ export default {
   mounted() {
     setTimeout(()=>{
       this.fade=false
+      console.log(123)
     },this.duration)
+    setTimeout(()=>{
+     this.$el.remove()
+    },this.duration+1)
   },
   setup () {
-    // 定义一个对象，包含三种情况的样式，对象key就是类型字符串
     const style = {
       warn: {
         icon: 'icon-warning',
@@ -72,7 +74,6 @@ export default {
     }
     // 控制动画
     const isShow = ref(false)
-    const x = ref(3000)
     // 组件模板渲染成功后触发
     onMounted(() => {
       isShow.value = true
@@ -96,7 +97,6 @@ export default {
 .xtx-message {
   display: flex;
   width: 300px;
-  height: 50px;
   position: fixed;
   z-index: 9999;
   left: 50%;
