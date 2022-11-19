@@ -17,9 +17,7 @@ export default {
       visible: false
     };
   },
-  mounted() {
 
-  },
   methods: {
     positionContent(){
       let {top, left} = this.$refs.triggerWrapper.getBoundingClientRect();
@@ -27,14 +25,15 @@ export default {
       this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
     },
     listenToDocument(){
-      let eventHandle = (e) => {
+      let onClickDocument = (e) => {
         if (!(this.$refs.contentWrapper && this.$refs.contentWrapper.contains(e.target))) {
           console.log('点击了pop以外的地方 并 关闭pop');
           this.visible = false;
-          document.removeEventListener('click', eventHandle);
+          document.removeEventListener('click', onClickDocument);
         }
       };
-      document.addEventListener('click', eventHandle);
+      document.addEventListener('click', onClickDocument);
+      console.log('监听');
     },
     onShow(){
       setTimeout(() => {
