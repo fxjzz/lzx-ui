@@ -45,7 +45,6 @@ export default {
   mounted() {
     setTimeout(()=>{
       this.fade=false
-      console.log(123)
     },this.duration)
     setTimeout(()=>{
      this.$el.remove()

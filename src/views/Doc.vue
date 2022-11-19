@@ -40,6 +40,9 @@
               <li>
                 <router-link to="/doc/message">Message</router-link>
               </li>
+              <li>
+                <router-link to="/doc/popover">Popover</router-link>
+              </li>
             </ol>
           </div>
         </aside>
