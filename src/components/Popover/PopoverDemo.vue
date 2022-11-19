@@ -6,7 +6,7 @@
         <div>this is a popover</div>
       </template>
       <template v-slot:x>
-        <Button>click me</Button>
+        <Button @click="x">click me</Button>
       </template>
     </Popover>
     <Popover>
@@ -28,7 +28,10 @@ import {Button} from "../../lib";
 export default {
   components: {Popover, Demo,Button},
   setup() {
-    return {};
+    const x = ()=>{
+
+    }
+    return {x};
   }
 };
 </script>
